@@ -15,7 +15,7 @@
     <h4>Just fetching your data. Don't go anywhere!</h4>
   </div>
   <ion-col>
-    <ion-card class="welcome-card" [ngClass]="{ dataLoading: dataLoading }">
+    <ion-card class="welcome-card" [ngClass]="{ dataLoading: dataLoading }" (click)="selectPerson('1')">
       <ion-img src="/assets/shapes.svg"></ion-img>
       <ion-card-header>
         <ion-card-subtitle>Get Started</ion-card-subtitle>

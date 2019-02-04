@@ -12,12 +12,14 @@ const routes: Routes = [
     loadChildren: './home/home.module#HomePageModule'
   },
   {
+    path: 'detail/:_id',
+    loadChildren: './detail/detail.module#DetailPageModule' },
+  {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
   },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'master-list', loadChildren: './master-list/master-list.module#MasterListPageModule' },
-  { path: 'detail', loadChildren: './detail/detail.module#DetailPageModule' }
 ];
 
 @NgModule({

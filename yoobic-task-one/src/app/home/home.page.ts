@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PeopleService } from '../people.service';
-import { LoadingController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +14,7 @@ export class HomePage implements OnInit {
 
   constructor(
     private ps: PeopleService,
-    public loadingController: LoadingController
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -25,6 +25,13 @@ export class HomePage implements OnInit {
     this.ps.getUsersList().subscribe(result => {
       console.log(result);
       this.dataLoading = false;
+    });
+  }
+
+  public selectPerson(person: any) {
+    this.ps.getSingleUser(person).subscribe(result => {
+      console.log(result);
+      this.router.navigateByUrl('/detail/:_id');
     });
   }
 
