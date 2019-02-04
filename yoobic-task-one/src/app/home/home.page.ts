@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PeopleService } from '../people.service';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,11 @@ import { PeopleService } from '../people.service';
 export class HomePage implements OnInit {
 
   listOfUsers: any = [];
+  dataLoading: Boolean = true;
 
   constructor(
-    private ps: PeopleService
+    private ps: PeopleService,
+    public loadingController: LoadingController
   ) { }
 
   ngOnInit() {
@@ -21,6 +24,7 @@ export class HomePage implements OnInit {
   public getUsersList() {
     this.ps.getUsersList().subscribe(result => {
       console.log(result);
+      this.dataLoading = false;
     });
   }
 
