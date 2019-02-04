@@ -10,13 +10,17 @@ export class PeopleService {
 
   public peopleList = new Subject<any>();
 
-  starwarsUrl = 'https://swapi.co/api/people';
+  baseStarwarsUrl = 'https://swapi.co/api/';
 
   constructor(
     private http: Http
   ) { }
 
   public getUsersList() {
-    return this.http.get(this.starwarsUrl).pipe(map((response: any) => response.json()));
+    return this.http.get(this.baseStarwarsUrl + 'people').pipe(map((response: any) => response.json()));
+  }
+
+  public getSingleUser(personId) {
+    return this.http.get(this.baseStarwarsUrl + 'people/' + personId).pipe(map((response: any) => response.json()));
   }
 }
