@@ -26,6 +26,7 @@ export class DetailPage implements OnInit {
       this.errorMessage = 'Opps, something went wrong with the user';
     } else if (chosenUserFromService) {
       this.chosenUser = chosenUserFromService;
+      console.log(this.chosenUser);
     }
   }
 

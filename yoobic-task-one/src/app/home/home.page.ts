@@ -24,13 +24,14 @@ export class HomePage implements OnInit {
   public getUsersList() {
     this.ps.getUsersList().subscribe(result => {
       console.log(result);
+      this.listOfUsers = result.results;
       this.dataLoading = false;
     });
   }
 
   public selectPerson(person: any) {
     this.ps.chosendUser = person;
-    this.router.navigateByUrl('/detail');
+    this.router.navigateByUrl('detail');
   }
 
 
