@@ -16,19 +16,18 @@
   </div>
   <ion-col>
     <ion-card class="welcome-card" 
-              *ngFor="let item of listOfUsers"
+              *ngFor="let person of listOfUsers"
               [ngClass]="{ dataLoading: dataLoading }" 
-              (click)="selectPerson(item)">
-      <ion-img src="/assets/shapes.svg"></ion-img>
+              (click)="selectPerson(person)">
       <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
+        <ion-img class="card-profile-image" src="{{person.picture.thumbnail}}"></ion-img>
+        <ion-card-subtitle>{{person.location.city}}, {{person.location.state}}</ion-card-subtitle>
+        <ion-card-title>{{person.name.first}} {{person.name.last}}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
+        <ion-img src="/assets/shapes.svg"></ion-img>
         <p>
-          Now that your app has been created, you'll want to start building out
-          features and components. Check out some of the resources below for
-          next steps.
+          This is some place holder text about each user.
         </p>
       </ion-card-content>
     </ion-card>

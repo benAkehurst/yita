@@ -11,6 +11,7 @@ export class HomePage implements OnInit {
 
   listOfUsers: any = [];
   dataLoading: Boolean = true;
+  linkToShapesImage: String = '../assets/shapes.svg';
 
   constructor(
     private ps: PeopleService,
