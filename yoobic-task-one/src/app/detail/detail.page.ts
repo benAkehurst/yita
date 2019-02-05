@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PeopleService } from '../people.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail',
@@ -8,11 +9,12 @@ import { PeopleService } from '../people.service';
 })
 export class DetailPage implements OnInit {
 
-  chosenUser: object = {};
+  chosenUser: object;
   errorMessage: String = '';
 
   constructor(
-    private ps: PeopleService
+    private ps: PeopleService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -22,12 +24,23 @@ export class DetailPage implements OnInit {
   public getChosenUser() {
     const chosenUserFromService = this.ps.chosendUser;
     if (!chosenUserFromService) {
-      this.chosenUser = {};
-      this.errorMessage = 'Opps, something went wrong with the user';
+      this.returnToHome();
     } else if (chosenUserFromService) {
       this.chosenUser = chosenUserFromService;
+      this.loadData();
+    }
+  }
+
+  public loadData() {
+    if (!this.chosenUser) {
+      this.returnToHome();
+    } else {
       console.log(this.chosenUser);
     }
+  }
+
+  public returnToHome() {
+    this.router.navigateByUrl('home');
   }
 
 }
