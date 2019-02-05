@@ -9,5 +9,21 @@
   <ion-icon slot="start" name="star"></ion-icon>
   Left Icon
 </ion-button>
+<h4 *ngIf="errorOccured">{{errorMessage}}</h4>
+<ion-col *ngIf="!errorOccured">
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-img class="card-profile-image" src="{{chosenUser.picture.medium}}"></ion-img>
+      <ion-card-subtitle>{{chosenUser.location.city}}, {{chosenUser.location.state}}</ion-card-subtitle>
+      <ion-card-title>{{chosenUser.name.first}} {{chosenUser.name.last}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-img src="/assets/shapes.svg"></ion-img>
+      <p>
+        This is some place holder text about each user.
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-col>
 
 </ion-content>

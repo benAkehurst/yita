@@ -9,13 +9,18 @@ import { Router } from '@angular/router';
 })
 export class DetailPage implements OnInit {
 
-  chosenUser: object;
+  chosenUser: object = {
+    location: Object,
+    name: Object
+  };
+  errorOccured: Boolean = false;
   errorMessage: String = '';
 
   constructor(
     private ps: PeopleService,
     private router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.getChosenUser();
@@ -32,7 +37,9 @@ export class DetailPage implements OnInit {
   }
 
   public loadData() {
-    if (!this.chosenUser) {
+    if (!this.chosenUser.location) {
+      this.errorOccured = true;
+      this.errorMessage = 'Oops, something went wrong. Going Home!';
       this.returnToHome();
     } else {
       console.log(this.chosenUser);
