@@ -29,10 +29,8 @@ export class HomePage implements OnInit {
   }
 
   public selectPerson(person: any) {
-    this.ps.getSingleUser(person).subscribe(result => {
-      console.log(result);
-      this.router.navigateByUrl('/detail/:_id');
-    });
+    this.ps.chosendUser = person;
+    this.router.navigateByUrl('/detail');
   }
 
 

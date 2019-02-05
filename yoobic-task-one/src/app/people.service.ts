@@ -8,18 +8,14 @@ import { Subject, Observable } from 'rxjs';
 })
 export class PeopleService {
 
-  proxyurl = 'https://cors-anywhere.herokuapp.com/';
-  baseStarwarsUrl = 'https://swapi.co/api/';
+  randomUserMeUrl = 'https://randomuser.me/api/?results=10';
+  chosendUser: object = {};
 
   constructor(
     private http: Http
   ) { }
 
   public getUsersList() {
-    return this.http.get(this.proxyurl + this.baseStarwarsUrl + 'people').pipe(map((response: any) => response.json()));
-  }
-
-  public getSingleUser(personId) {
-    return this.http.get(this.proxyurl + this.baseStarwarsUrl + 'people/' + personId).pipe(map((response: any) => response.json()));
+    return this.http.get(this.randomUserMeUrl).pipe(map((response: any) => response.json()));
   }
 }
