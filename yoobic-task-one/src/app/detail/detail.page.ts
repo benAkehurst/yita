@@ -9,10 +9,7 @@ import { Router } from '@angular/router';
 })
 export class DetailPage implements OnInit {
 
-  chosenUser: object = {
-    location: Object,
-    name: Object
-  };
+  chosenUser: any;
   errorOccured: Boolean = false;
   errorMessage: String = '';
 

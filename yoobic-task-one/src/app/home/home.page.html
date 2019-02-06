@@ -25,9 +25,9 @@
         <ion-card-title>{{person.name.first}} {{person.name.last}}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-img src="/assets/shapes.svg"></ion-img>
+        <ion-img src="{{person.gif.source}}"></ion-img>
         <p>
-          This is some place holder text about each user.
+          {{person.gif.title}}
         </p>
       </ion-card-content>
     </ion-card>
