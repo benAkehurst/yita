@@ -13,15 +13,21 @@
 <ion-col *ngIf="!errorOccured">
   <ion-card class="welcome-card">
     <ion-card-header>
-      <ion-img class="card-profile-image" src="{{chosenUser.picture.medium}}"></ion-img>
-      <ion-card-subtitle>{{chosenUser.location.city}}, {{chosenUser.location.state}}</ion-card-subtitle>
-      <ion-card-title>{{chosenUser.name.first}} {{chosenUser.name.last}}</ion-card-title>
+      <ion-img class="card-profile-image" src="{{chosenUser.picture}}"></ion-img>
+      <ion-card-subtitle>{{chosenUser.city}}, {{chosenUser.state}}</ion-card-subtitle>
+      <ion-card-title>{{chosenUser.name}}</ion-card-title>
     </ion-card-header>
-    <ion-card-content>
-      <ion-img src="/assets/shapes.svg"></ion-img>
+    <ion-card-content *ngIf="randomGifExists">
+      <h4>My Favorite Gif</h4>
       <p>
-        This is some place holder text about each user.
+       {{randomGif.title}}
       </p>
+      <ion-img src="{{randomGif.thumbnail}}" (click)="seeGif()">
+        <span>Tap to View</span>
+      </ion-img>
+    </ion-card-content>
+    <ion-card-content *ngIf="showGifIframe">
+      <iframe src="{{randomGif.url}}" frameborder="0"></iframe>
     </ion-card-content>
   </ion-card>
 </ion-col>
