@@ -9,27 +9,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="spinner-message" *ngIf="dataLoading">
-    <ion-spinner name="circles"></ion-spinner>
-    <h4>Just fetching your data. Don't go anywhere!</h4>
-  </div>
+<div class="spinner-message" *ngIf="dataLoading">
+  <ion-spinner name="circles"></ion-spinner>
+  <h4>Just fetching your data. Don't go anywhere!</h4>
+</div>
+<ion-content *ngIf="!dataLoading">
   <ion-col>
     <ion-card class="welcome-card" 
               *ngFor="let person of listOfUsers"
               [ngClass]="{ dataLoading: dataLoading }" 
               (click)="selectPerson(person)">
       <ion-card-header>
-        <ion-img class="card-profile-image" src="{{person.picture.thumbnail}}"></ion-img>
-        <ion-card-subtitle>{{person.location.city}}, {{person.location.state}}</ion-card-subtitle>
-        <ion-card-title>{{person.name.first}} {{person.name.last}}</ion-card-title>
+        <ion-img class="card-profile-image" src="{{person.pictureSmall}}"></ion-img>
+        <ion-card-subtitle>{{person.city}}, {{person.state}}</ion-card-subtitle>
+        <ion-card-title>{{person.name}}</ion-card-title>
       </ion-card-header>
-      <ion-card-content>
-        <ion-img src="{{person.gif.source}}"></ion-img>
-        <p>
-          {{person.gif.title}}
-        </p>
-      </ion-card-content>
     </ion-card>
   </ion-col>
 </ion-content>

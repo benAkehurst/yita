@@ -11,37 +11,29 @@ import { DataService } from '../data.service';
 export class HomePage implements OnInit {
 
   listOfUsers: any = [];
-  listOfGifs: any = [];
   dataLoading: Boolean = true;
-  linkToShapesImage: String = '../assets/shapes.svg';
 
   constructor(
     private ps: PeopleService,
-    private dataService: DataService,
     private router: Router
   ) { }
 
   ngOnInit() {
     this.getUsersList();
-    this.getGifData();
   }
 
   public getUsersList() {
     this.ps.getUsersList().subscribe(result => {
-      console.log(result);
-      this.listOfUsers = result.results;
-      this.dataLoading = false;
-    });
-  }
-
-  public getGifData() {
-    this.dataService.getGifsData().subscribe(result => {
-      result.data.children.forEach(element => {
-        const newGif = {
-          title: element.data.title,
-          source: element.data.url
+      result.results.forEach(e => {
+        const newUser = {
+          name: e.name.first + ' ' + e.name.last,
+          picture: e.picture.medium,
+          pictureSmall: e.picture.thumbnail,
+          city: e.location.city,
+          state: e.location.state,
         };
-        this.listOfGifs.push(newGif);
+        this.listOfUsers.push(newUser);
+        this.dataLoading = false;
       });
     });
   }
