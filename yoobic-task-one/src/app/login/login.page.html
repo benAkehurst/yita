@@ -1,0 +1,48 @@
+<ion-grid>
+	<ion-row justify-content-center>
+    <ion-col>
+      image placeholder
+    </ion-col>
+    <!-- Sign In View -->
+		<ion-col align-self-center size-md="6" size-lg="5" size-xs="12" *ngIf="loginInView">
+			<div text-center>
+				<h4>Sign In</h4>
+			</div>
+			<div padding>
+				<ion-item>
+					<ion-input type="email" placeholder="Email" [(ngModel)]="email"></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+        <h6 class="forgot-password-link">Forgot Password?</h6>
+      </div>
+      <div padding>
+          Sign In with
+          <br>
+          <ion-icon name="logo-facebook"></ion-icon>
+      </div>
+      <div *ngIf="showError" class="error-message-div">
+        <h4 class="error-messge">{{errorMessage}}</h4>
+      </div>
+    </ion-col>
+    <!-- Sign Up View -->
+    <ion-col align-self-center size-md="6" size-lg="5" size-xs="12" *ngIf="signUpInView">
+			<div text-center>
+				<h4>Sign Up</h4>
+			</div>
+			<div padding>
+				<ion-item>
+					<ion-input type="email" placeholder="Email"></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-input type="password" placeholder="Password"></ion-input>
+				</ion-item>
+			</div>
+    </ion-col>
+    <div padding class="entry-buttons-container">
+      <ion-button size="large" (click)="changeToSignUp()" expand="block">Sign Up</ion-button>
+      <ion-button size="large" (click)="login()" expand="block">Sign In</ion-button>
+    </div>
+	</ion-row>
+</ion-grid>

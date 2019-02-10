@@ -1,13 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>detail</ion-title>
+    <ion-title>User Detail</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
 <ion-button (click)="returnToHome()">
-  <ion-icon slot="start" name="star"></ion-icon>
-  Left Icon
+  <ion-icon name="arrow-dropleft-circle"></ion-icon>
+  Back
 </ion-button>
 <h4 *ngIf="errorOccured">{{errorMessage}}</h4>
 <ion-col *ngIf="!errorOccured">
