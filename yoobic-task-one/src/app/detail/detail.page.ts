@@ -28,7 +28,7 @@ export class DetailPage implements OnInit {
 
   public getChosenUser() {
     const chosenUserFromService = this.ps.chosendUser;
-    console.log(chosenUserFromService);
+    // console.log(chosenUserFromService);
     if (!chosenUserFromService) {
       this.returnToHome();
     } else if (chosenUserFromService) {
@@ -43,7 +43,7 @@ export class DetailPage implements OnInit {
       this.errorMessage = 'Oops, something went wrong. Going Home!';
       this.returnToHome();
     } else {
-      console.log(this.chosenUser);
+      // console.log(this.chosenUser);
       this.fetchRandomGif();
     }
   }

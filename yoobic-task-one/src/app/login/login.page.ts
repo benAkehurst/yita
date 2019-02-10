@@ -38,7 +38,7 @@ export class LoginPage implements OnInit {
     }
 
     if (this.email && this.password !== null) {
-      console.log('login success');
+      // console.log('login success');
       this.router.navigateByUrl('/home');
     } else {
       this.showError = true;
