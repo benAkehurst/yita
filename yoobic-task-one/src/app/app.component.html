@@ -7,9 +7,11 @@
         </ion-toolbar>
       </ion-header>
       <ion-content>
-        <ion-col>
-          Image placeholder
-        </ion-col>
+
+        <ion-avatar class="user-avatar__img">
+          <img src="assets/images/anonymous-user.png">
+        </ion-avatar>
+
         <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
@@ -20,6 +22,7 @@
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
+
       </ion-content>
     </ion-menu>
     <ion-router-outlet main></ion-router-outlet>
