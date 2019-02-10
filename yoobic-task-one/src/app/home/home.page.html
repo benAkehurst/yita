@@ -8,11 +8,6 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<div class="spinner-message" *ngIf="dataLoading">
-  <ion-spinner name="circles"></ion-spinner>
-  <h4>Just fetching your data. Don't go anywhere!</h4>
-</div>
 <ion-content *ngIf="!dataLoading">
   <ion-col>
     <ion-card class="welcome-card" 
@@ -27,3 +22,7 @@
     </ion-card>
   </ion-col>
 </ion-content>
+<div class="spinner-message" *ngIf="dataLoading">
+  <ion-spinner name="circles"></ion-spinner>
+  <h4>Just fetching your data. Don't go anywhere!</h4>
+</div>
