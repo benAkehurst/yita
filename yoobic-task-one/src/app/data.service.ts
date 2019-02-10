@@ -7,13 +7,13 @@ import { map } from 'rxjs/operators';
 })
 export class DataService {
 
-  gifUrl = 'https://www.reddit.com/r/gifs/new/.json?limit=10';
+  dogUrl = 'https://dog.ceo/api/breeds/image/random';
 
   constructor(
     private http: Http
   ) { }
 
-  public getGifsData() {
-    return this.http.get(this.gifUrl).pipe(map((response: any) => response.json()));
+  public getDogsData() {
+    return this.http.get(this.dogUrl).pipe(map((response: any) => response.json()));
   }
 }

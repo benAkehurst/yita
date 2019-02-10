@@ -13,10 +13,7 @@ export class DetailPage implements OnInit {
   chosenUser: any;
   errorOccured: Boolean = false;
   errorMessage: String = '';
-  gifsArr: any = [];
-  randomGif: any;
-  randomGifExists: Boolean = false;
-  showGifIframe: Boolean = false;
+  dogUrl: String = '';
 
   constructor(
     private ps: PeopleService,
@@ -52,20 +49,9 @@ export class DetailPage implements OnInit {
   }
 
   public fetchRandomGif() {
-    this.dataService.getGifsData().subscribe(result => {
-      this.gifsArr = result.data.children;
-      this.fetchSingleGif();
+    this.dataService.getDogsData().subscribe(result => {
+      this.dogUrl = result.message;
     });
-  }
-
-  public fetchSingleGif() {
-    const rand = this.gifsArr[Math.floor(Math.random() * this.gifsArr.length)];
-    this.randomGif = rand.data;
-    this.randomGifExists = true;
-  }
-
-  public seeGif() {
-    this.showGifIframe = true;
   }
 
   public returnToHome() {

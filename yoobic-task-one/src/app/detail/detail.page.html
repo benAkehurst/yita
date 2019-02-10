@@ -17,17 +17,9 @@
       <ion-card-subtitle>{{chosenUser.city}}, {{chosenUser.state}}</ion-card-subtitle>
       <ion-card-title>{{chosenUser.name}}</ion-card-title>
     </ion-card-header>
-    <ion-card-content *ngIf="randomGifExists">
-      <h4>My Favorite Gif</h4>
-      <p>
-       {{randomGif.title}}
-      </p>
-      <ion-img src="{{randomGif.thumbnail}}" (click)="seeGif()">
-        <span>Tap to View</span>
-      </ion-img>
-    </ion-card-content>
-    <ion-card-content *ngIf="showGifIframe">
-      <iframe src="{{randomGif.url}}" frameborder="0"></iframe>
+    <ion-card-content *ngIf="dogUrl">
+      <h4>My Favorite Dog</h4>
+      <ion-img src="{{dogUrl}}"></ion-img>
     </ion-card-content>
   </ion-card>
 </ion-col>
